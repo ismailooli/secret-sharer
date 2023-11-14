@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title> Secret Sharer </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <link rel= "icon" href="{{ url_for('static', filename='oppy.png') }}" type = "image/x-icon">
+</head>
+<body>
+    
+
+    <div class="login-card">
+        <h2> Secret Sharer </h2>
+        <h3>Enter a description of the person: </h3>
+
+        <form action="/" method="post" class="login-form">
+            <input type="text" id="user_sentence" name="user_sentence" placeholder="Statement...">
+            <button type="submit">DETECT</button>
+        </form>
+    </div>
+
+    <div class="response {% if sentiment_class %}{{ sentiment_class }}{% endif %}">
+        {% if response %}
+            <p>{{ response }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
